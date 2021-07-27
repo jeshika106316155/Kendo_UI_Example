@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <link href="https://kendo.cdn.telerik.com/2021.2.616/styles/kendo.common.min.css" rel="stylesheet" />
+        <link href="https://kendo.cdn.telerik.com/2021.2.616/styles/kendo.default.min.css" rel="stylesheet" />
+        <script src="https://kendo.cdn.telerik.com/2021.2.616/js/jquery.min.js"></script>
+        <script src="https://kendo.cdn.telerik.com/2021.2.616/js/kendo.all.min.js"></script>
+    </head>
+    <body>
+        <form id="form"></form>
+
+        <script>
+            $(document).ready(function () {
+                $("#form").kendoForm({
+                    validatable: { validationSummary: true },
+                    orientation: "vertical",
+                    formData: { //預設直
+                        TextBox: "John Doe",
+                        NumericTextBox: 2,
+                        DatePicker: new Date(),
+                        DateTimePicker: new Date(),
+                        Switch: true,
+                        DropDownList: 1
+                    },
+                    items: [
+                        {
+                            field: "TextBox",
+                            label: "TextBox",
+                            validation: { required: true }
+                        },
+                        {
+                            field: "NumericTextBox",
+                            editor: "NumericTextBox",
+                            label: "NumericTextBox",
+                            validation: { required: true }
+                        },
+                        {
+                            field: "DatePicker",
+                            editor: "DatePicker",
+                            label: "Date Picker:",
+                            validation: { required: true }
+                        },
+                        {
+                            field: "DateTimePicker",
+                            editor: "DateTimePicker",
+                            label: "Date Time Picker:",
+                            validation: { required: true }
+                        },
+                        {
+                            field: "Switch",
+                            editor: "Switch",
+                            label: "Switch",
+                            validation: { required: true }
+                        },
+                        {
+                            field: "DropDownList", editor: "DropDownList", label: "DropDownList", validation: { required: true }, editorOptions: {
+                                optionLabel: "Select item...",
+                                dataSource: [
+                                    { Name: "Item1", Id: 1 },
+                                    { Name: "Item2", Id: 2 }
+                                ],
+                                dataTextField: "Name",
+                                dataValueField: "Id"
+                            }
+                        }
+                    ]
+                });
+            });
+        </script>
+    </body>
+</html>
